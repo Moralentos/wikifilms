@@ -1,0 +1,68 @@
+.header {
+  background: linear-gradient(290.6deg, rgb(204, 228, 247) 11.2%, rgb(218, 235, 243) 60.2%);
+
+  height: 3.5rem;
+
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: inherit;
+
+    .search {
+      display: flex;
+      align-items: center;
+      height: 35px;
+      max-width: 200px;
+      background-color: #f4f7fc8c;
+      border-radius: 10px;
+
+      input[type='text'] {
+        height: 20px;
+        padding-left: 5px;
+        background-color: #f4f7fc00;
+      }
+
+      svg {
+        width: 20px;
+        color: gray;
+      }
+    }
+
+    .logo {
+      font-family: 'Dela Gothic One';
+      font-size: 20px;
+    }
+
+    .nav-menu {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+
+      ul {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        align-items: center;
+
+        li {
+          height: 100%;
+
+          a {
+            height: 100%;
+            display: inline-flex;
+            align-items: center;
+            padding: 0 5px;
+            height: inherit;
+
+            &:hover {
+              background-color: #fff;
+            }
+          }
+        }
+      }
+    }
+  }
+}

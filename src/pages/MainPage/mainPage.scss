@@ -1,0 +1,10 @@
+.top {
+  background-color: #fff;
+
+  border-radius: 15px;
+  // height: 10rem;
+  &.wrapper {
+    padding: 1rem 2rem;
+    margin-top: 2rem;
+  }
+}
