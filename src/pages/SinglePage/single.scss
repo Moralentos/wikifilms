@@ -1,0 +1,114 @@
+.single-wrapper {
+  padding: 1rem 2rem;
+  margin-top: 2rem !important;
+  background-color: #fff;
+  border-radius: 15px;
+
+  .top-single {
+    display: flex;
+    justify-content: space-between;
+    .present {
+      padding: 0 50px;
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+      flex-direction: column;
+      align-items: center;
+      div {
+        height: auto;
+        width: auto;
+      }
+    }
+    & div {
+      position: relative;
+      overflow: hidden;
+      height: 500px;
+      width: 300px;
+      img {
+        position: absolute;
+        top: 0;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  .body-single {
+    padding: 2rem 3rem 0;
+    .staff {
+      display: flex;
+      flex-direction: column;
+      span {
+        font-weight: bold;
+        font-size: 20px;
+      }
+    }
+
+    .actors {
+      margin-top: 25px;
+      .span-actors {
+        font-size: 25px;
+      }
+      div {
+        display: flex;
+        align-items: center;
+        margin-top: 5px;
+        span {
+          margin-left: 10px;
+          font-weight: 600;
+          font-size: 20px;
+        }
+        .img {
+          overflow: hidden;
+          position: relative;
+          width: 80px;
+          height: 80px;
+          border-radius: 10px;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 0 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+        }
+      }
+    }
+  }
+  .bottom {
+    margin-top: 2rem;
+    span {
+      font-weight: 600;
+      font-size: 20px;
+    }
+    div {
+      margin-top: 5px;
+      display: flex;
+      .bottom-img {
+        overflow: hidden;
+        position: relative;
+        height: 300px;
+        width: 300px;
+        border-radius: 10px;
+        margin-right: 10px;
+        &:last-child {
+          margin-right: 0;
+        }
+
+        img {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          top: 0;
+        }
+      }
+    }
+  }
+}
+iframe {
+  border-radius: 10px;
+}

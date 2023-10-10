@@ -1,5 +1,6 @@
 // import React from 'react';
 import './header.scss';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -9,10 +10,12 @@ const Header = () => {
         <div className='nav-menu'>
           <ul>
             <li>
-              <a href='#'>Главная</a>
+              {/* <a href='#'>Главная</a> */}
+              <Link to={'/'}>Главная</Link>
             </li>
             <li>
-              <a href='#'>Фильмы</a>
+              {/* <a href='#'>Фильмы</a> */}
+              <Link to={'/film'}>Фильмы</Link>
             </li>
             <li>
               <a href='#'>Сериалы</a>
