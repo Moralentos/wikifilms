@@ -18,7 +18,8 @@ const Header = () => {
               <Link to={'/film'}>Фильмы</Link>
             </li>
             <li>
-              <a href='#'>Сериалы</a>
+              {/* <a href='#'>Сериалы</a> */}
+              <Link to={'/series'}>Сериалы</Link>
             </li>
           </ul>
         </div>
