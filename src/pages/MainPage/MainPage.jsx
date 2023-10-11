@@ -3,9 +3,12 @@ import './mainPage.scss';
 import TopSlider from '../../components/TopSliderBlock/TopSlider.jsx';
 import axios from 'axios';
 import Rated from '../../components/RatedBlock/Rated';
+import { useSelector, useDispatch } from 'react-redux';
+import { getSeries } from '../../Redux/seriesPageSlice/';
 
 const MainPage = () => {
   const [isData, setData] = React.useState('');
+  const dispatch = useDispatch();
 
   const apiKey = 'aa3b2968-fe7d-4ce8-8f24-57870b765ead';
 
@@ -26,9 +29,10 @@ const MainPage = () => {
     }
   };
   console.log(isData);
-  React.useEffect(() => {
-    // fetchData();
-  }, []);
+  // React.useEffect(() => {
+  //   // fetchData();
+  //   dispatch(getSeries());
+  // }, [dispatch]);
 
   return (
     <>
