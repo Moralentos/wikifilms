@@ -1,26 +1,48 @@
 // import React from 'react';
 import './header.scss';
 import { Link } from 'react-router-dom';
+import React from 'react';
 
 const Header = () => {
+  const [headerPage, setHeaderPage] = React.useState(0);
+  const headerNav = [
+    { name: 'Главная', to: '/' },
+    { name: 'Фильмы', to: '/film' },
+    { name: 'Сериалы', to: '/series' },
+  ];
+  console.log(headerPage);
+
   return (
     <div className='header'>
       <div className='wrapper container'>
         <div className='logo'>WikiFilms</div>
         <div className='nav-menu'>
           <ul>
-            <li>
-              {/* <a href='#'>Главная</a> */}
+            {headerNav.map((obj, index) => {
+              return (
+                <li key={index}>
+                  <Link
+                    onClick={() => setHeaderPage(index)}
+                    className={index === headerPage ? 'active' : ''}
+                    to={obj.to}
+                  >
+                    {obj.name}
+                  </Link>
+                </li>
+              );
+            })}
+            {/* <li>
+              <a href='#'>Главная</a>
               <Link to={'/'}>Главная</Link>
             </li>
             <li>
-              {/* <a href='#'>Фильмы</a> */}
+              <a href='#'>Фильмы</a>
               <Link to={'/film'}>Фильмы</Link>
             </li>
             <li>
-              {/* <a href='#'>Сериалы</a> */}
+              <a href='#'>Сериалы</a>
               <Link to={'/series'}>Сериалы</Link>
-            </li>
+            </li> */}
           </ul>
         </div>
         <div className='search'>
