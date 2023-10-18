@@ -12,7 +12,6 @@ const Single = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
 
-  // const [isActor, setActor] = React.useState([[1], [2]]);
   window.scrollTo(0, 0);
   const getMinActor = () => {
     if (singleActor.length - 1 > 5) {
@@ -45,19 +44,19 @@ const Single = () => {
       <div className='level'></div>
       <div className='body-single'>
         <div className='staff'>
-          <span>
+          <span className='staff-block'>
             Режиссер:
             {singleDirector.map(
               (obj, index) =>
                 obj && (
-                  <span key={obj.id}>
+                  <span className='staff-text' key={obj.id}>
                     {obj.nameRu}
-                    {index < singleDirector.length - 1 ? ', ' : ''}
+                    {index < singleDirector.length - 1 ? ',' : ''}
                   </span>
                 ),
             )}
           </span>
-          <span>Продюсер:</span>
+          <span className='staff-block'>Продюсер:</span>
         </div>
         <div className='actors'>
           <span className='span-actors'>Актеры:</span>
