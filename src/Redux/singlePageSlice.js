@@ -1,19 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const apiKey = 'aa3b2968-fe7d-4ce8-8f24-57870b765ead';
+const apiKey = '0a0ca537-d80e-4b20-b65e-08a5c1baeb19';
 
 export const getSingleData = (id) => async (dispatch) => {
   try {
-    const response = await axios.get(
-      `https://kinopoiskapiunofficial.tech/api/v2.2/films/${id}`,
-      {
-        headers: {
-          'X-API-KEY': apiKey,
-          'Content-Type': 'application/json',
-        },
+    const response = await axios.get(`https://kinopoiskapiunofficial.tech/api/v2.2/films/${id}`, {
+      headers: {
+        'X-API-KEY': apiKey,
+        'Content-Type': 'application/json',
       },
-    );
+    });
 
     const data = response.data;
 
@@ -46,7 +43,8 @@ export const getSingleStaff = (id) => async (dispatch) => {
 const initialState = {
   singleData: [],
   error: null,
-  singleStaff: [],
+  singleDirector: [],
+  singleActor: [],
   staffError: null,
 };
 
@@ -63,11 +61,12 @@ export const singlePageSlice = createSlice({
       state.error = action.payload;
     },
     receiveStaff: (state, action) => {
-      state.singleStaff = action.payload;
+      state.singleDirector = action.payload.filter((item) => item.professionKey === 'DIRECTOR');
+      state.singleActor = action.payload.filter((item) => item.professionKey === 'ACTOR');
       state.error = null;
     },
     receiveStaffError: (state, action) => {
-      state.staffError = [];
+      // state.staffError = [];
       state.error = action.payload;
     },
   },

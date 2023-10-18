@@ -25,18 +25,25 @@
       height: 500px;
       width: 300px;
       border-radius: 10px;
-        -webkit-box-shadow: 0px 4px 8px 0px rgba(34, 60, 80, 0.2);
-        -moz-box-shadow: 0px 4px 8px 0px rgba(34, 60, 80, 0.2);
-        box-shadow: 0px 4px 8px 0px rgba(34, 60, 80, 0.5);
+      -webkit-box-shadow: 0px 4px 8px 0px rgba(34, 60, 80, 0.2);
+      -moz-box-shadow: 0px 4px 8px 0px rgba(34, 60, 80, 0.2);
+      box-shadow: 0px 4px 8px 0px rgba(34, 60, 80, 0.5);
       img {
         position: absolute;
         top: 0;
         object-fit: cover;
         width: 100%;
         height: 100%;
-        
       }
     }
+  }
+
+  .level {
+    width: 100%;
+    height: 2px;
+    background: rgb(226, 226, 226);
+    border-radius: 30px;
+    margin-top: 2rem;
   }
 
   .body-single {
@@ -55,29 +62,48 @@
       .span-actors {
         font-size: 25px;
       }
-      div {
+      .actors-block {
         display: flex;
-        align-items: center;
+        align-items: start;
+        justify-content: space-between;
         margin-top: 5px;
-        span {
-          margin-left: 10px;
-          font-weight: 600;
-          font-size: 20px;
-        }
-        .img {
-          overflow: hidden;
-          position: relative;
-          width: 80px;
-          height: 80px;
-          border-radius: 10px;
-          img {
+
+        .actors-card {
+          width: 150px;
+          // margin-right: 10px;
+
+          .img {
+            overflow: hidden;
+            position: relative;
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: 0 0;
-            position: absolute;
-            top: 0;
-            left: 0;
+            height: 200px;
+            border-radius: 10px 10px 0 0;
+
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              object-position: 0 10;
+              position: absolute;
+              top: 0;
+              left: 0;
+            }
+          }
+          .actor-name {
+            font-weight: 600;
+            font-size: 20px;
+            width: 100%;
+
+            background-color: #bd95ed1c;
+            border-radius: 0 0 10px 10px;
+            margin: 0;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+          }
+          #sub-name {
+            font-weight: normal;
+            font-size: 15px;
           }
         }
       }
@@ -85,13 +111,17 @@
   }
   .bottom {
     margin-top: 2rem;
+
     span {
       font-weight: 600;
       font-size: 20px;
     }
-    div {
-      margin-top: 5px;
+    .img-block {
       display: flex;
+      background-color: #f1fbff;
+      border-radius: 10px;
+      padding: 20px;
+
       .bottom-img {
         overflow: hidden;
         position: relative;

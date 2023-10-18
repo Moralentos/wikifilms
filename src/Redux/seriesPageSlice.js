@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const apiKey = 'aa3b2968-fe7d-4ce8-8f24-57870b765ead';
+const apiKey = '0a0ca537-d80e-4b20-b65e-08a5c1baeb19';
 
 export const getSeries = () => async (dispatch) => {
   try {

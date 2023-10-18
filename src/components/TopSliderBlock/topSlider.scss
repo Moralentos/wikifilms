@@ -34,6 +34,7 @@
       position: absolute;
       top: 30px;
       right: 160px;
+      max-width: 500px;
 
       .text {
         display: flex;
@@ -44,7 +45,7 @@
         }
 
         .desc {
-          width: 400px;
+          width: 100%;
           margin: 10px 0;
         }
       }
@@ -56,13 +57,53 @@
         color: gray;
       }
 
-      .btn button {
-        border: none;
-        font-size: 25px;
-        padding: 5px 10px;
-        border-radius: 10px;
-        margin-right: 5px;
-        margin-top: 10px;
+      .btn {
+        display: flex;
+        margin-top: 4rem;
+
+        a {
+          width: 100%;
+        }
+
+        button {
+          border: none;
+          font-size: 20px;
+          font-weight: 600;
+          padding: 10px 10px;
+          border-radius: 10px;
+          margin-right: 5px;
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+
+          background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(204, 228, 247, 1) 64%);
+          width: 100%;
+          justify-content: center;
+          transition: background 0.1s linear;
+
+          &#trailer {
+            background: #fff;
+
+            &:hover {
+              background: #ffffffe7;
+            }
+          }
+
+          &:hover {
+            // background-color: #fff;
+            background: linear-gradient(
+              270deg,
+              rgba(255, 255, 255, 1) 0%,
+              rgba(204, 228, 247, 1) 64%
+            );
+          }
+
+          svg {
+            width: 30px;
+            height: 30px;
+            margin-right: 5px;
+          }
+        }
       }
     }
   }

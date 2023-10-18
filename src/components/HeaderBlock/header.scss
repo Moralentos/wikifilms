@@ -1,5 +1,5 @@
 .header {
-  background: linear-gradient(290.6deg, rgb(204, 228, 247) 11.2%, rgb(218, 235, 243) 60.2%);
+  background: #cce4f7;
 
   height: 3.5rem;
 
@@ -13,9 +13,9 @@
       display: flex;
       align-items: center;
       height: 35px;
-      max-width: 200px;
+      max-width: 250px;
       background-color: #f4f7fc8c;
-      border-radius: 10px;
+      border-radius: 20px;
 
       input[type='text'] {
         height: 20px;
@@ -24,14 +24,16 @@
       }
 
       svg {
-        width: 20px;
+        width: 20px !important;
+        height: 20px !important;
         color: gray;
+        margin: 0 10px;
       }
     }
 
     .logo {
       font-family: 'Dela Gothic One';
-      font-size: 20px;
+      font-size: 25px;
     }
 
     .nav-menu {
@@ -39,7 +41,8 @@
       display: flex;
       align-items: center;
       font-family: 'Nunito', sans-serif;
-      font-weight: 700;
+      font-weight: 600;
+      font-size: 20px;
 
       ul {
         display: flex;
@@ -56,6 +59,7 @@
             align-items: center;
             padding: 0 5px;
             height: inherit;
+            transition: background 0.1s linear;
 
             &.active {
               background-color: #fff;
