@@ -2,15 +2,23 @@
 import './header.scss';
 import { Link } from 'react-router-dom';
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { setCount } from '../../Redux/seriesPageSlice';
 
 const Header = () => {
   const [headerPage, setHeaderPage] = React.useState(0);
+  const isCount = useSelector((state) => state.seriesSlice.isCount);
+  const dispatch = useDispatch();
   const headerNav = [
     { name: 'Главная', to: '/' },
-    { name: 'Фильмы', to: '/film' },
-    { name: 'Сериалы', to: '/series' },
+    { name: 'Фильмы', to: '/films' },
+    { name: 'Сериалы', to: `/series/page/${isCount}` },
   ];
   console.log(headerPage);
+  const handleLink = (index) => {
+    setHeaderPage(index);
+    dispatch(setCount(1));
+  };
 
   return (
     <div className='header'>
@@ -22,7 +30,7 @@ const Header = () => {
               return (
                 <li key={index}>
                   <Link
-                    onClick={() => setHeaderPage(index)}
+                    onClick={() => handleLink(index)}
                     className={index === headerPage ? 'active' : ''}
                     to={obj.to}
                   >

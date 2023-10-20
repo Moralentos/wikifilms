@@ -23,6 +23,7 @@ const Single = () => {
   React.useEffect(() => {
     dispatch(getSingleData(id));
     dispatch(getSingleStaff(id));
+    console.log(isActor);
   }, [dispatch, id]);
 
   return (
