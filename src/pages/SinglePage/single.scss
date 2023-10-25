@@ -69,8 +69,9 @@
       }
       .actors-block {
         display: flex;
+        flex-wrap: wrap;
         align-items: start;
-        justify-content: space-between;
+        justify-content: space-around;
         margin-top: 5px;
 
         .actors-card {

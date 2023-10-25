@@ -1,44 +1,42 @@
 import React from "react";
-import styles from "./series.module.scss";
+import styles from "./movies.module.scss";
 import { useSelector, useDispatch } from "react-redux";
-import { getSeries, setCount } from "../../Redux/seriesPageSlice/";
+import { getMovies, setMoviesPage } from "../../Redux/moviesPageSlice/";
 import { Link } from "react-router-dom";
 import Paginator from "../../components/Paginator/Paginator";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-const Series = () => {
-  const seriesData = useSelector((state) => state.seriesSlice.series.items);
+const Movies = () => {
+  const moviesData = useSelector((state) => state.moviesSlice.movies.items);
+  const page = useSelector((state) => state.moviesSlice.moviesPage);
   const totalPages = useSelector(
-    (state) => state.seriesSlice.series.totalPages
+    (state) => state.moviesSlice.movies.totalPages
   );
-  const isCount = useSelector((state) => state.seriesSlice.isCount);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // const [isCount, setCount] = React.useState(1);
-  console.log(isCount);
   const { pageNum = 1 } = useParams();
 
   React.useEffect(() => {
-    navigate(`/series/page/${isCount}`);
+    navigate(`/films/page/${page}`);
 
-    dispatch(getSeries(pageNum));
-    console.log(seriesData);
-  }, [isCount, pageNum, totalPages]);
+    dispatch(getMovies(pageNum));
+    console.log(moviesData);
+  }, [page, pageNum, totalPages]);
 
   React.useEffect(() => {
-    dispatch(setCount(pageNum));
+    dispatch(setMoviesPage(pageNum));
   }, [pageNum]);
 
   return (
     <div className={`container`}>
       <div className={styles.wrapper}>
         <div className={styles.card_block}>
-          {seriesData &&
-            seriesData.map((item, index) => {
+          {moviesData &&
+            moviesData.map((item, index) => {
               return (
-                <Link key={index} to={`/series/${item.kinopoiskId}`}>
+                <Link key={index} to={`/movies/${item.kinopoiskId}`}>
                   <div className={styles.card}>
                     <div className={styles.img}>
                       <img src={item.posterUrlPreview} alt="" />
@@ -59,12 +57,12 @@ const Series = () => {
         <Paginator
           pages={totalPages}
           elemPage={5}
-          isCount={isCount}
-          setCount={setCount}
+          isCount={page}
+          setCount={setMoviesPage}
         ></Paginator>
       </div>
     </div>
   );
 };
 
-export default Series;
+export default Movies;

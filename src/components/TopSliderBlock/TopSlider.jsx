@@ -38,7 +38,7 @@ const TopSlider = () => {
               </svg>
               Трейлер
             </button>
-            <Link to={`/film/1044004`}>
+            <Link to={`/series/1044004`}>
               <button>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
