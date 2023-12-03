@@ -1,10 +1,10 @@
-.single-wrapper {
+.single_wrapper {
   padding: 1rem 2rem;
   margin-top: 2rem !important;
   background-color: #fff;
   border-radius: 15px;
 
-  .top-single {
+  .top_single {
     display: flex;
     justify-content: space-between;
     .present {
@@ -19,7 +19,7 @@
         width: auto;
       }
     }
-    & .img-single {
+    & .img_single {
       position: relative;
       overflow: hidden;
       height: 500px;
@@ -46,15 +46,15 @@
     margin-top: 2rem;
   }
 
-  .body-single {
+  .body_single {
     padding: 2rem 3rem 0;
     .staff {
       display: flex;
       flex-direction: column;
-      .staff-block {
+      .staff_block {
         font-weight: bold;
         font-size: 20px;
-        .staff-text {
+        .staff_text {
           font-weight: 500;
           margin-left: 5px;
           font-size: 17px;
@@ -64,17 +64,17 @@
 
     .actors {
       margin-top: 25px;
-      .span-actors {
+      .span_actors {
         font-size: 25px;
       }
-      .actors-block {
+      .actors_block {
         display: flex;
         flex-wrap: wrap;
         align-items: start;
         justify-content: space-around;
         margin-top: 5px;
 
-        .actors-card {
+        .actors_card {
           width: 150px;
           // margin-right: 10px;
 
@@ -95,7 +95,7 @@
               left: 0;
             }
           }
-          .actor-name {
+          .actor_name {
             font-weight: 600;
             font-size: 20px;
             width: 100%;
@@ -107,7 +107,7 @@
             display: flex;
             flex-direction: column;
           }
-          #sub-name {
+          #sub_name {
             font-weight: normal;
             font-size: 15px;
           }
@@ -122,13 +122,13 @@
       font-weight: 600;
       font-size: 20px;
     }
-    .img-block {
+    .img_block {
       display: flex;
       background-color: #f1fbff;
       border-radius: 10px;
       padding: 20px;
 
-      .bottom-img {
+      .bottom_img {
         overflow: hidden;
         position: relative;
         height: 300px;

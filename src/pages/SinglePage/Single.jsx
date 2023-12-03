@@ -1,5 +1,5 @@
 import React from 'react';
-import './single.scss';
+import styles from './single.module.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import { getSingleData, getSingleStaff } from '../../Redux/singlePageSlice';
 import { useParams } from 'react-router-dom';
@@ -27,12 +27,12 @@ const Single = () => {
   }, [dispatch, id]);
 
   return (
-    <div className='container single-wrapper'>
-      <div className='top-single'>
-        <div className='img-single'>
+    <div className={`container ${styles.single_wrapper}`}>
+      <div className={styles.top_single}>
+        <div className={styles.img_single}>
           <img src={singleData.posterUrl} alt='' />
         </div>
-        <div className='present'>
+        <div className={styles.present}>
           <div>
             <h1>{singleData.nameRu}</h1>
             <h2>{singleData.year}</h2>
@@ -42,64 +42,64 @@ const Single = () => {
           <iframe width='560' height='315'></iframe>
         </div>
       </div>
-      <div className='level'></div>
-      <div className='body-single'>
-        <div className='staff'>
-          <span className='staff-block'>
+      <div className={styles.level}></div>
+      <div className={styles.body_single}>
+        <div className={styles.staff}>
+          <span className={styles.staff_block}>
             Режиссер:
             {singleDirector.map(
               (obj, index) =>
                 obj && (
-                  <span className='staff-text' key={obj.id}>
+                  <span className={styles.staff_text} key={obj.id}>
                     {obj.nameRu}
                     {index < singleDirector.length - 1 ? ',' : ''}
                   </span>
                 ),
             )}
           </span>
-          <span className='staff-block'>Продюсер:</span>
+          <span className={styles.staff_block}>Продюсер:</span>
         </div>
-        <div className='actors'>
-          <span className='span-actors'>Актеры:</span>
+        <div className={styles.actors}>
+          <span className={styles.span_actors}>Актеры:</span>
 
-          <div className='actors-block'>
+          <div className={styles.actors_block}>
             {isActor &&
               isActor.map((actor, index) => (
-                <div key={actor.staffId} className='actors-card'>
-                  <div className='img'>
+                <div key={actor.staffId} className={styles.actors_card}>
+                  <div className={styles.img}>
                     <img src={actor.posterUrl} alt='' />
                   </div>
-                  <div className='actor-name'>
+                  <div className={styles.actor_name}>
                     <span>{actor.nameRu}</span>
-                    <span id='sub-name'>{actor.description}</span>
+                    <span id={styles.sub_name}>{actor.description}</span>
                   </div>
                 </div>
               ))}
           </div>
         </div>
       </div>
-      <div className='bottom'>
+      <div className={styles.bottom}>
         <span>Скриншоты</span>
-        <div className='img-block'>
-          <div className='bottom-img'>
+        <div className={styles.img_block}>
+          <div className={styles.bottom_img}>
             <img
               src='https://kinotv.ru/upload/setka-editor/0f0/vah7z549hi2a1vz2dz8yiocuzlfrv9po.jpeg'
               alt=''
             />
           </div>
-          <div className='bottom-img'>
+          <div className={styles.bottom_img}>
             <img
               src='https://kinotv.ru/upload/setka-editor/0f0/vah7z549hi2a1vz2dz8yiocuzlfrv9po.jpeg'
               alt=''
             />
           </div>
-          <div className='bottom-img'>
+          <div className={styles.bottom_img}>
             <img
               src='https://kinotv.ru/upload/setka-editor/0f0/vah7z549hi2a1vz2dz8yiocuzlfrv9po.jpeg'
               alt=''
             />
           </div>
-          <div className='bottom-img'>
+          <div className={styles.bottom_img}>
             <img
               src='https://kinotv.ru/upload/setka-editor/0f0/vah7z549hi2a1vz2dz8yiocuzlfrv9po.jpeg'
               alt=''

@@ -1,5 +1,5 @@
 import React from 'react';
-import './mainPage.scss';
+import styles from './mainPage.module.scss';
 import TopSlider from '../../components/TopSliderBlock/TopSlider.jsx';
 import axios from 'axios';
 import Rated from '../../components/RatedBlock/Rated';
@@ -38,13 +38,13 @@ const MainPage = () => {
     <>
       <TopSlider></TopSlider>
       <div className='container'>
-        <div className='top wrapper'>
+        <div className={`${styles.top} ${styles.wrapper}`}>
           <Rated type={'top'} isData={isData}></Rated>
         </div>
-        <div className='top wrapper'>
+        <div className={`${styles.top} ${styles.wrapper}`}>
           <Rated type={'best'} isData={isData}></Rated>
         </div>
-        <div className='top wrapper'>
+        <div className={`${styles.top} ${styles.wrapper}`}>
           <Rated type={'await'} isData={isData}></Rated>
         </div>
       </div>
