@@ -4,6 +4,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getSingleData, getSingleStaff } from '../../Redux/singlePageSlice';
 import { useParams } from 'react-router-dom';
 
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
+
 const Single = () => {
   const singleData = useSelector((state) => state.singleSlice.singleData);
   const singleDirector = useSelector((state) => state.singleSlice.singleDirector);
@@ -25,6 +28,26 @@ const Single = () => {
     dispatch(getSingleStaff(id));
     console.log(isActor);
   }, [dispatch, id]);
+
+  const responsive = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 5,
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 4,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 3,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+    },
+  };
 
   return (
     <div className={`container ${styles.single_wrapper}`}>
@@ -80,31 +103,40 @@ const Single = () => {
       </div>
       <div className={styles.bottom}>
         <span>Скриншоты</span>
+
         <div className={styles.img_block}>
-          <div className={styles.bottom_img}>
-            <img
-              src='https://kinotv.ru/upload/setka-editor/0f0/vah7z549hi2a1vz2dz8yiocuzlfrv9po.jpeg'
-              alt=''
-            />
-          </div>
-          <div className={styles.bottom_img}>
-            <img
-              src='https://kinotv.ru/upload/setka-editor/0f0/vah7z549hi2a1vz2dz8yiocuzlfrv9po.jpeg'
-              alt=''
-            />
-          </div>
-          <div className={styles.bottom_img}>
-            <img
-              src='https://kinotv.ru/upload/setka-editor/0f0/vah7z549hi2a1vz2dz8yiocuzlfrv9po.jpeg'
-              alt=''
-            />
-          </div>
-          <div className={styles.bottom_img}>
-            <img
-              src='https://kinotv.ru/upload/setka-editor/0f0/vah7z549hi2a1vz2dz8yiocuzlfrv9po.jpeg'
-              alt=''
-            />
-          </div>
+          <Carousel responsive={responsive}>
+            <div className={styles.bottom_img}>
+              <img
+                src='https://kinotv.ru/upload/setka-editor/0f0/vah7z549hi2a1vz2dz8yiocuzlfrv9po.jpeg'
+                alt=''
+              />
+            </div>
+            <div className={styles.bottom_img}>
+              <img
+                src='https://kinotv.ru/upload/setka-editor/0f0/vah7z549hi2a1vz2dz8yiocuzlfrv9po.jpeg'
+                alt=''
+              />
+            </div>
+            <div className={styles.bottom_img}>
+              <img
+                src='https://kinotv.ru/upload/setka-editor/0f0/vah7z549hi2a1vz2dz8yiocuzlfrv9po.jpeg'
+                alt=''
+              />
+            </div>
+            <div className={styles.bottom_img}>
+              <img
+                src='https://kinotv.ru/upload/setka-editor/0f0/vah7z549hi2a1vz2dz8yiocuzlfrv9po.jpeg'
+                alt=''
+              />
+            </div>
+            <div className={styles.bottom_img}>
+              <img
+                src='https://kinotv.ru/upload/setka-editor/0f0/vah7z549hi2a1vz2dz8yiocuzlfrv9po.jpeg'
+                alt=''
+              />
+            </div>
+          </Carousel>
         </div>
       </div>
     </div>
