@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './single.module.scss';
 import { useSelector, useDispatch } from 'react-redux';
-import { getSingleData, getSingleStaff } from '../../Redux/singlePageSlice';
+import { getSingleData, getSingleStaff, fetchImage } from '../../Redux/singlePageSlice';
 import { useParams } from 'react-router-dom';
 
 import Carousel from 'react-multi-carousel';
@@ -11,6 +11,8 @@ const Single = () => {
   const singleData = useSelector((state) => state.singleSlice.singleData);
   const singleDirector = useSelector((state) => state.singleSlice.singleDirector);
   const singleActor = useSelector((state) => state.singleSlice.singleActor);
+  const singleImage = useSelector((state) => state.singleSlice.singleImage);
+  const statusImage = useSelector((state) => state.singleSlice.statusImage);
 
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -23,9 +25,15 @@ const Single = () => {
   };
   const isActor = getMinActor();
   console.log(isActor);
+
+  const getImage = async (id) => {
+    dispatch(fetchImage(id));
+  };
+
   React.useEffect(() => {
     dispatch(getSingleData(id));
     dispatch(getSingleStaff(id));
+    getImage(id);
     console.log(isActor);
   }, [dispatch, id]);
 
@@ -47,6 +55,30 @@ const Single = () => {
       breakpoint: { max: 464, min: 0 },
       items: 1,
     },
+  };
+
+  const imageLoaded = () => {
+    if (statusImage === 'loading') {
+      return <div>Loading...</div>;
+    }
+
+    if (statusImage === 'error') {
+      return <div>Error...</div>;
+    }
+
+    if (statusImage === 'success') {
+      return (
+        <div className={styles.img_block}>
+          <Carousel responsive={responsive}>
+            {singleImage.map((elem, index) => (
+              <div key={index} className={styles.bottom_img}>
+                <img src={elem.previewUrl} alt='' />
+              </div>
+            ))}
+          </Carousel>
+        </div>
+      );
+    }
   };
 
   return (
@@ -87,7 +119,7 @@ const Single = () => {
 
           <div className={styles.actors_block}>
             {isActor &&
-              isActor.map((actor, index) => (
+              isActor.map((actor) => (
                 <div key={actor.staffId} className={styles.actors_card}>
                   <div className={styles.img}>
                     <img src={actor.posterUrl} alt='' />
@@ -103,41 +135,7 @@ const Single = () => {
       </div>
       <div className={styles.bottom}>
         <span>Скриншоты</span>
-
-        <div className={styles.img_block}>
-          <Carousel responsive={responsive}>
-            <div className={styles.bottom_img}>
-              <img
-                src='https://kinotv.ru/upload/setka-editor/0f0/vah7z549hi2a1vz2dz8yiocuzlfrv9po.jpeg'
-                alt=''
-              />
-            </div>
-            <div className={styles.bottom_img}>
-              <img
-                src='https://kinotv.ru/upload/setka-editor/0f0/vah7z549hi2a1vz2dz8yiocuzlfrv9po.jpeg'
-                alt=''
-              />
-            </div>
-            <div className={styles.bottom_img}>
-              <img
-                src='https://kinotv.ru/upload/setka-editor/0f0/vah7z549hi2a1vz2dz8yiocuzlfrv9po.jpeg'
-                alt=''
-              />
-            </div>
-            <div className={styles.bottom_img}>
-              <img
-                src='https://kinotv.ru/upload/setka-editor/0f0/vah7z549hi2a1vz2dz8yiocuzlfrv9po.jpeg'
-                alt=''
-              />
-            </div>
-            <div className={styles.bottom_img}>
-              <img
-                src='https://kinotv.ru/upload/setka-editor/0f0/vah7z549hi2a1vz2dz8yiocuzlfrv9po.jpeg'
-                alt=''
-              />
-            </div>
-          </Carousel>
-        </div>
+        {imageLoaded()}
       </div>
     </div>
   );

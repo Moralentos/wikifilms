@@ -1,7 +1,7 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const apiKey = '0a0ca537-d80e-4b20-b65e-08a5c1baeb19';
+const apiKey = 'aa3b2968-fe7d-4ce8-8f24-57870b765ead';
 
 export const getSingleData = (id) => async (dispatch) => {
   try {
@@ -40,12 +40,28 @@ export const getSingleStaff = (id) => async (dispatch) => {
   }
 };
 
+export const fetchImage = createAsyncThunk(`image/fetchImages`, async (id) => {
+  const response = await axios.get(
+    `https://kinopoiskapiunofficial.tech/api/v2.2/films/${id}/images?type=STILL&page=1`,
+    {
+      headers: {
+        'X-API-KEY': apiKey,
+        'Content-Type': 'application/json',
+      },
+    },
+  );
+
+  return response.data.items;
+});
+
 const initialState = {
   singleData: [],
   error: null,
   singleDirector: [],
   singleActor: [],
   staffError: null,
+  singleImage: [],
+  statusImage: 'loading',
 };
 
 export const singlePageSlice = createSlice({
@@ -69,6 +85,23 @@ export const singlePageSlice = createSlice({
       // state.staffError = [];
       state.error = action.payload;
     },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchImage.pending, (state) => {
+        console.log('Загрузка картинок');
+        state.statusImage = 'loading';
+        state.singleImage = [];
+      })
+      .addCase(fetchImage.fulfilled, (state, action) => {
+        console.log('Картинки получены');
+        state.statusImage = 'success';
+        state.singleImage = action.payload;
+      })
+      .addCase(fetchImage.rejected, (state) => {
+        console.log('Ошибка картинок');
+        state.statusImage = 'error';
+      });
   },
 });
 
