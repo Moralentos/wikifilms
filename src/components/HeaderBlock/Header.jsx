@@ -26,7 +26,11 @@ const Header = () => {
   return (
     <div className={styles.header}>
       <div className={`${styles.wrapper} container`}>
-        <div className={styles.logo}>WikiFilms</div>
+        <div>
+          <Link onClick={() => setHeaderPage(0)} className={styles.logo} to={'/'}>
+            WikiFilms
+          </Link>
+        </div>
         <div className={styles.nav_menu}>
           <ul>
             {headerNav.map((obj, index) => {
